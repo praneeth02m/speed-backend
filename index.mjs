@@ -4,10 +4,13 @@ import { launch } from "chrome-launcher";
 import lighthouse from "lighthouse";
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://speed-frontend.onrender.com",
+  })
+);
 app.use(express.json());
 
-// Route to handle GET requests to "/"
 app.get("/", (req, res) => {
   res.send("SpeedX Backend is up and running!");
 });
